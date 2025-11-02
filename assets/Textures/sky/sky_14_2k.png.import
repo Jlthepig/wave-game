@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nsl2u3iac7j3"
-path.s3tc="res://.godot/imported/Wave Game Assets_bark_03_baseColor_1k.png-b1403c9353250747a0b3498695338580.s3tc.ctex"
+uid="uid://1fjpcprs8u4e"
+path.s3tc="res://.godot/imported/sky_14_2k.png-c281105ffff514001cde68af12871a12.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "a3ce4b52e8e8237c89447bc7d0ac5085"
-}
 
 [deps]
 
-source_file="res://Wave Game Assets_bark_03_baseColor_1k.png"
-dest_files=["res://.godot/imported/Wave Game Assets_bark_03_baseColor_1k.png-b1403c9353250747a0b3498695338580.s3tc.ctex"]
+source_file="res://assets/Textures/sky/sky_14_2k.png"
+dest_files=["res://.godot/imported/sky_14_2k.png-c281105ffff514001cde68af12871a12.s3tc.ctex"]
 
 [params]
 

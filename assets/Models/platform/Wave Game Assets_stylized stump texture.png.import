@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ovp7ieu4e8u"
-path.s3tc="res://.godot/imported/Wave Game Assets_Rope_001_normal.jpg-1171b3277a2fcb9739b3ed437b0f1d85.s3tc.ctex"
+uid="uid://cywp21lnm836g"
+path.s3tc="res://.godot/imported/Wave Game Assets_stylized stump texture.png-300a2c2872a02371a40dac4fdb75a2fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2a7619415c41f80c0da27ad5d8c9fc86"
+"md5": "43eafde983d8b87ffe1f9c9b12aa20b3"
 }
 
 [deps]
 
-source_file="res://Wave Game Assets_Rope_001_normal.jpg"
-dest_files=["res://.godot/imported/Wave Game Assets_Rope_001_normal.jpg-1171b3277a2fcb9739b3ed437b0f1d85.s3tc.ctex"]
+source_file="res://assets/Models/platform/Wave Game Assets_stylized stump texture.png"
+dest_files=["res://.godot/imported/Wave Game Assets_stylized stump texture.png-300a2c2872a02371a40dac4fdb75a2fc.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://Wave Game Assets_Rope_001_normal.jpg"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgii5dg2lsray"
-path.s3tc="res://.godot/imported/Wave Game Assets_stylized stump texture.png-defbe5abbcefa19ac8eafed62e41d14e.s3tc.ctex"
+uid="uid://du1d8jr2y58i1"
+path.s3tc="res://.godot/imported/Wave Game Assets_bark_03_metallic_1k-bark_03_roughness_1k.png-e1cc4126ca7adccc9d810e4e6071617a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "43eafde983d8b87ffe1f9c9b12aa20b3"
+"md5": "f61e2c4449af3b58bd107454d9f9ad60"
 }
 
 [deps]
 
-source_file="res://Wave Game Assets_stylized stump texture.png"
-dest_files=["res://.godot/imported/Wave Game Assets_stylized stump texture.png-defbe5abbcefa19ac8eafed62e41d14e.s3tc.ctex"]
+source_file="res://assets/Models/platform/Wave Game Assets_bark_03_metallic_1k-bark_03_roughness_1k.png"
+dest_files=["res://.godot/imported/Wave Game Assets_bark_03_metallic_1k-bark_03_roughness_1k.png-e1cc4126ca7adccc9d810e4e6071617a.s3tc.ctex"]
 
 [params]
 

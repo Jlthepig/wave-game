@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://djgxlt413xlm2"]
+
+[ext_resource type="Shader" uid="uid://cabhkhcjvngv8" path="res://assets/Textures/watershader/water.gdshader" id="1_fmhw3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fmhw3")
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_height = 0.3
+shader_parameter/wave_frequency = 2.0
+shader_parameter/deep_color = Color(0, 0.2, 0.5, 1)
+shader_parameter/shallow_color = Color(0.1, 0.4, 0.7, 1)

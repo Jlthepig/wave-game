@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcdns6e3w0xqw"
-path.s3tc="res://.godot/imported/Wave Game Assets_Rope_001_roughness.png-dd42ccf4dc28dc71fb1fb847e13317ef.s3tc.ctex"
+uid="uid://c5g3ulomypff3"
+path.s3tc="res://.godot/imported/Wave Game Assets_Rope_001_basecolor.jpg-afc3043d56af8fa2ef37f9407d15b554.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d2d96122b9f6f73380536855807612de"
+"md5": "8b2f8de3b0ef845fb550d4949fb310c6"
 }
 
 [deps]
 
-source_file="res://Wave Game Assets_Rope_001_roughness.png"
-dest_files=["res://.godot/imported/Wave Game Assets_Rope_001_roughness.png-dd42ccf4dc28dc71fb1fb847e13317ef.s3tc.ctex"]
+source_file="res://assets/Models/platform/Wave Game Assets_Rope_001_basecolor.jpg"
+dest_files=["res://.godot/imported/Wave Game Assets_Rope_001_basecolor.jpg-afc3043d56af8fa2ef37f9407d15b554.s3tc.ctex"]
 
 [params]
 

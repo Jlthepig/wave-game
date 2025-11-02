@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chei0y2ogfjye"
-path="res://.godot/imported/Wave Game Assets.glb-277a84c4f661e6ac0046af2c2e134c7c.scn"
+uid="uid://r2o3lbp1qctj"
+path="res://.godot/imported/oceanfloor.glb-772fa8d05cf953e0020c35f6de254f03.scn"
 
 [deps]
 
-source_file="res://Wave Game Assets.glb"
-dest_files=["res://.godot/imported/Wave Game Assets.glb-277a84c4f661e6ac0046af2c2e134c7c.scn"]
+source_file="res://assets/Models/Oceanfloor/oceanfloor.glb"
+dest_files=["res://.godot/imported/oceanfloor.glb-772fa8d05cf953e0020c35f6de254f03.scn"]
 
 [params]
 
@@ -37,6 +37,13 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/enabled": true,
+"use_external/path": "uid://djgxlt413xlm2"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
