@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://debbq65velcoy"]
+[gd_scene load_steps=11 format=3 uid="uid://debbq65velcoy"]
 
 [ext_resource type="Texture2D" uid="uid://1fjpcprs8u4e" path="res://assets/Textures/sky/sky_14_2k.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://df1ke1mpj4h3" path="res://Prefabs/Player.tscn" id="1_r150o"]
 [ext_resource type="PackedScene" uid="uid://chei0y2ogfjye" path="res://assets/Models/platform/Wave Game Assets.glb" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://r2o3lbp1qctj" path="res://assets/Models/Oceanfloor/oceanfloor.glb" id="4_rgh2o"]
 [ext_resource type="Material" uid="uid://djgxlt413xlm2" path="res://assets/Models/Oceanfloor/Ocean_floor.tres" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://dpegj7v01ryu7" path="res://gold pile_bestest.glb" id="6_v1gob"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pbw6q"]
 panorama = ExtResource("1_kln2b")
@@ -46,6 +47,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5368014, -0.34895498, -1.98
 [node name="Plane" parent="oceanfloor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021643102, 0)
 material_override = ExtResource("5_pbw6q")
+
+[node name="gold pile_bestest" parent="." instance=ExtResource("6_v1gob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.131414, 0.90971106, -0.56028724)
 
 [editable path="Wave Game Assets"]
 [editable path="oceanfloor"]
