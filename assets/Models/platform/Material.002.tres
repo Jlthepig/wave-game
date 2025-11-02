@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dse5s2vlu8ieb"]
+
+[ext_resource type="Texture2D" uid="uid://cywp21lnm836g" path="res://assets/Models/platform/Wave Game Assets_stylized stump texture.png" id="1_h5ied"]
+
+[resource]
+resource_name = "Material.002"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_h5ied")
+roughness = 0.5

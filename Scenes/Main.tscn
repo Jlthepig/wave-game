@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://debbq65velcoy"]
+[gd_scene load_steps=15 format=3 uid="uid://debbq65velcoy"]
 
 [ext_resource type="Texture2D" uid="uid://1fjpcprs8u4e" path="res://assets/Textures/sky/sky_14_2k.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://df1ke1mpj4h3" path="res://Prefabs/Player.tscn" id="1_r150o"]
+[ext_resource type="Script" uid="uid://oemncug0laqw" path="res://scripts/main.gd" id="1_vy5pj"]
+[ext_resource type="PackedScene" uid="uid://b4e8dtyr4mnqt" path="res://Prefabs/Wave.tscn" id="2_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://chei0y2ogfjye" path="res://assets/Models/platform/Wave Game Assets.glb" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://r2o3lbp1qctj" path="res://assets/Models/Oceanfloor/oceanfloor.glb" id="4_rgh2o"]
+[ext_resource type="Script" uid="uid://d2v8k3trubk63" path="res://scripts/Platformtile.gd" id="5_bmxlf"]
 [ext_resource type="Material" uid="uid://djgxlt413xlm2" path="res://assets/Models/Oceanfloor/Ocean_floor.tres" id="5_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://dpegj7v01ryu7" path="res://gold pile_bestest.glb" id="6_v1gob"]
+[ext_resource type="PackedScene" uid="uid://dpegj7v01ryu7" path="res://assets/Models/gold/gold pile_bestest.glb" id="6_v1gob"]
+[ext_resource type="Script" uid="uid://cfd65lroakqev" path="res://scripts/wave_manager.gd" id="7_jw32o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pbw6q"]
 panorama = ExtResource("1_kln2b")
@@ -17,11 +21,16 @@ sky_material = SubResource("PanoramaSkyMaterial_pbw6q")
 background_mode = 2
 sky = SubResource("Sky_v1gob")
 ambient_light_source = 3
+fog_enabled = true
+fog_density = 0.008
+fog_sky_affect = 0.288
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pbw6q"]
 points = PackedVector3Array(1.0866202, -0.006673015, 0.89138174, -0.88356334, 0.05496306, 0.9865634, 1.0261724, 0.15250841, -0.7322744, 1.0261724, -0.19772065, 0.82782316, 1.0580885, -0.16585445, -0.82782316, -0.7248231, 0.18437463, 0.70035833, -0.5337256, -0.16585445, 0.70035833, 1.0261724, 0.12067961, 1.0189207, -0.85208845, 0.15250841, -0.7641905, 1.0261724, 0.12067961, -1.0189207, -0.85208845, -0.13402563, -1.0189207, -0.82017237, -0.10215943, 1.0189207, -0.3745442, -0.16585445, -0.85953975, -0.82017237, 0.15250841, 1.0189207, 0.8033584, -0.13398823, -1.0189207, 1.1219207, 0.12067961, -0.7322744, 0.42136288, -0.13398823, 1.0189207, -0.85208845, 0.0888134, -1.0189207, -0.88400453, -0.13402563, 0.66864175, -0.9159206, 0.12064221, -0.7641905, 1.0580885, 0.15250841, -0.06343319, 0.3894468, -0.19772065, 0.7959071, 1.0900047, -0.13398823, -0.82782316, -0.9159206, 0.12064221, 0.70035833, 1.0509692, -0.06781301, 0.978623, 1.0900047, 0.12067961, 0.9233719, -0.88400453, -0.13402563, -0.85953975, 1.0261724, -0.10215943, -1.0189207, -0.24727887, 0.12064221, -1.0189207, 1.1219207, 0.12067961, -0.06343319, -0.66099095, 0.18437463, 0.70035833, 0.7078096, -0.19772065, 0.85953975)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_vy5pj")
+wave_scene = ExtResource("2_bmxlf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.66715693, 0, 0.7449173, 0, 1, 0, -0.7449173, 0, -0.66715693, 0, 1.9031861, 0)
@@ -33,23 +42,207 @@ environment = SubResource("Environment_jw32o")
 [node name="Player" parent="." instance=ExtResource("1_r150o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2581801, 0)
 
-[node name="Wave Game Assets" parent="." instance=ExtResource("3_rgh2o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10180068, 0.06584877, -0.008449793)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Wave Game Assets/Raft piece" index="0"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wave Game Assets/Raft piece/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_pbw6q")
-
 [node name="oceanfloor" parent="." instance=ExtResource("4_rgh2o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5368014, -0.34895498, -1.9827758)
 
 [node name="Plane" parent="oceanfloor" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021643102, 0)
 material_override = ExtResource("5_pbw6q")
+surface_material_override/0 = ExtResource("5_pbw6q")
 
 [node name="gold pile_bestest" parent="." instance=ExtResource("6_v1gob")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.131414, 0.90971106, -0.56028724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3781552, 0.13875294, 0.87845683)
 
-[editable path="Wave Game Assets"]
+[node name="WaveManager" type="Node3D" parent="."]
+script = ExtResource("7_jw32o")
+
+[node name="PlatformRoot" type="Node3D" parent="."]
+
+[node name="RaftPiece" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10180068, 0.06584877, -0.008449793)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece2" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10180068, 0.06584877, -1.992744)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece2/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece2/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece3" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1018007, 0.06584877, -0.008449793)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece3/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece3/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece4" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1018007, 0.06584877, -1.992744)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece4/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece4/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece5" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10180068, 0.06584877, 3.9915502)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece5/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece5/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece6" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10180068, 0.06584877, 2.007256)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece6" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece6/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece6/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece7" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1018007, 0.06584877, 3.9915502)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece7/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece7/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece8" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1018007, 0.06584877, 2.007256)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece8" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece8/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece8/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece9" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.101801, 0.06584877, -0.008449793)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece9/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece9/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece10" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.101801, 0.06584877, -1.992744)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece10" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece10/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece10/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece11" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.101801, 0.06584877, -0.008449793)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece11/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece11/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece12" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.101801, 0.06584877, -1.992744)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece12" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece12/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece12/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece13" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.101801, 0.06584877, 3.9915502)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece13/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece13/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece14" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.101801, 0.06584877, 2.007256)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece14" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece14/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece14/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece15" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.101801, 0.06584877, 3.9915502)
+script = ExtResource("5_bmxlf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece15/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece15/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="RaftPiece16" parent="PlatformRoot" instance=ExtResource("3_rgh2o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.101801, 0.06584877, 2.007256)
+script = ExtResource("5_bmxlf")
+
+[node name="Raft piece" parent="PlatformRoot/RaftPiece16" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000007, 0, 0.005343795)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformRoot/RaftPiece16/Raft piece" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformRoot/RaftPiece16/Raft piece/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pbw6q")
+
+[node name="TargetPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2700715, 0, 0.9761001)
+
 [editable path="oceanfloor"]
+[editable path="PlatformRoot/RaftPiece"]
+[editable path="PlatformRoot/RaftPiece2"]
+[editable path="PlatformRoot/RaftPiece3"]
+[editable path="PlatformRoot/RaftPiece4"]
+[editable path="PlatformRoot/RaftPiece5"]
+[editable path="PlatformRoot/RaftPiece6"]
+[editable path="PlatformRoot/RaftPiece7"]
+[editable path="PlatformRoot/RaftPiece8"]
+[editable path="PlatformRoot/RaftPiece9"]
+[editable path="PlatformRoot/RaftPiece10"]
+[editable path="PlatformRoot/RaftPiece11"]
+[editable path="PlatformRoot/RaftPiece12"]
+[editable path="PlatformRoot/RaftPiece13"]
+[editable path="PlatformRoot/RaftPiece14"]
+[editable path="PlatformRoot/RaftPiece15"]
+[editable path="PlatformRoot/RaftPiece16"]
