@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://df1ke1mpj4h3"]
+
+[ext_resource type="Script" uid="uid://bi8man6qcwj7k" path="res://Prefabs/player.gd" id="1_um8lo"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4ynan"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_um8lo"]
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Camera")]
+script = ExtResource("1_um8lo")
+Camera = NodePath("Camera3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_4ynan")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_um8lo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6256783, -0.34508634)
