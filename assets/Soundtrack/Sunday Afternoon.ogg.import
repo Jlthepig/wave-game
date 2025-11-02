@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://erumv1x5aler"
+path="res://.godot/imported/Sunday Afternoon.ogg-fb6647831a06a7353cb0cae3e634ff7c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/Soundtrack/Sunday Afternoon.ogg"
+dest_files=["res://.godot/imported/Sunday Afternoon.ogg-fb6647831a06a7353cb0cae3e634ff7c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

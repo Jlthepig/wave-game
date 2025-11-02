@@ -1,7 +1,10 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://rhmaqc05gjar"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://rhmaqc05gjar"]
+
+[ext_resource type="Material" uid="uid://bjs7athdcuuyo" path="res://assets/Textures/outline/Outline.tres" id="1_3pr1a"]
 
 [resource]
 resource_name = "Material.003"
+next_pass = ExtResource("1_3pr1a")
 cull_mode = 2
 diffuse_mode = 3
 specular_mode = 1
