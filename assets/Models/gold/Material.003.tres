@@ -9,5 +9,5 @@ cull_mode = 2
 diffuse_mode = 3
 specular_mode = 1
 albedo_color = Color(0.77641207, 0.62803847, 0.37403005, 1)
-metallic = 0.71363634
-roughness = 0.35454547
+metallic_specular = 0.0
+roughness = 0.1

@@ -1,0 +1,32 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://w4voqki6ayx0"]
+
+[ext_resource type="Texture2D" uid="uid://c423vw2wnwfu3" path="res://assets/Models/Pick_Ups/Rope/rope_pickup_better_Rope_001_basecolor.jpg" id="1_jsk0v"]
+[ext_resource type="Texture2D" uid="uid://b7u4eah7nmnum" path="res://assets/Models/Pick_Ups/Rope/rope_pickup_better_Rope_001_roughness.png" id="2_205ft"]
+[ext_resource type="Texture2D" uid="uid://dfw62q55yu17q" path="res://assets/Models/Pick_Ups/Rope/rope_pickup_better_Rope_001_normal.jpg" id="3_git3d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsk0v"]
+cull_mode = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0, 0, 0, 1)
+metallic_specular = 0.0
+roughness = 0.0
+grow = true
+grow_amount = 0.364
+
+[resource]
+resource_name = "Material.002"
+next_pass = SubResource("StandardMaterial3D_jsk0v")
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_jsk0v")
+metallic_specular = 0.0
+metallic_texture = ExtResource("2_205ft")
+metallic_texture_channel = 2
+roughness = 0.21
+roughness_texture = ExtResource("2_205ft")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 0.75
+normal_texture = ExtResource("3_git3d")

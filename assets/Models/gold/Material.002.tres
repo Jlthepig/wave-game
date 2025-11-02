@@ -11,5 +11,6 @@ diffuse_mode = 3
 specular_mode = 1
 albedo_texture = ExtResource("1_owgw8")
 metallic = 0.73636365
+metallic_specular = 0.25
 roughness = 0.14545456
 grow_amount = 0.02
