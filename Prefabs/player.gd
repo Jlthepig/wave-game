@@ -14,8 +14,20 @@ var pitch: float = 0.0
 @export_category("Camera")
 @export var Camera: Camera3D
 
+@export_category("Head Bob")
+@export var bob_freq: float = 2.0  # Frequency of head bob
+@export var bob_amp: float = 0.08  # Amplitude of head bob
+@export var breathing_freq: float = 0.3  # Breathing frequency (slower)
+@export var breathing_amp: float = 0.02  # Breathing amplitude (subtle)
+
+var bob_time: float = 0.0
+var breathing_time: float = 0.0
+var camera_origin: Vector3
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if Camera:
+		camera_origin = Camera.position
 
 func _input(event):
 	if event is InputEventMouseMotion and mouse_locked:
@@ -45,6 +57,8 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
+	var is_moving = direction.length() > 0 and is_on_floor()
+	
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -53,3 +67,26 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	move_and_slide()
+	
+	# Apply head bob
+	if Camera:
+		apply_head_bob(delta, is_moving)
+
+func apply_head_bob(delta: float, is_moving: bool) -> void:
+	var bob_offset = Vector3.ZERO
+	
+	if is_moving:
+		# Walking head bob
+		bob_time += delta * bob_freq
+		bob_offset.y = sin(bob_time * TAU) * bob_amp
+		bob_offset.x = cos(bob_time * TAU * 0.5) * bob_amp * 0.5
+	else:
+		# Idle breathing
+		breathing_time += delta * breathing_freq
+		bob_offset.y = sin(breathing_time * TAU) * breathing_amp
+		
+		# Smoothly reset bob_time when stopping
+		bob_time = lerp(bob_time, 0.0, delta * 5.0)
+	
+	# Apply the offset
+	Camera.position = camera_origin + bob_offset

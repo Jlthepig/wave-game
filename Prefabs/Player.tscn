@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://df1ke1mpj4h3"]
+[gd_scene load_steps=5 format=3 uid="uid://df1ke1mpj4h3"]
 
 [ext_resource type="Script" uid="uid://bi8man6qcwj7k" path="res://Prefabs/player.gd" id="1_um8lo"]
+[ext_resource type="Texture2D" uid="uid://dqdmjbue066ht" path="res://assets/Textures/Crosshair.png" id="2_x3d5u"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4ynan"]
 
@@ -18,3 +19,17 @@ shape = SubResource("CapsuleShape3D_um8lo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6256783, -0.34508634)
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x3d5u")

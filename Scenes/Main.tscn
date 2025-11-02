@@ -1,15 +1,26 @@
-[gd_scene load_steps=15 format=3 uid="uid://debbq65velcoy"]
+[gd_scene load_steps=24 format=3 uid="uid://debbq65velcoy"]
 
 [ext_resource type="Texture2D" uid="uid://1fjpcprs8u4e" path="res://assets/Textures/sky/sky_14_2k.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://df1ke1mpj4h3" path="res://Prefabs/Player.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://oemncug0laqw" path="res://scripts/main.gd" id="1_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://b4e8dtyr4mnqt" path="res://Prefabs/Wave.tscn" id="2_bmxlf"]
+[ext_resource type="Script" uid="uid://cd27plohny7uc" path="res://scripts/wavecountlabel.gd" id="3_346fj"]
 [ext_resource type="PackedScene" uid="uid://chei0y2ogfjye" path="res://assets/Models/platform/Wave Game Assets.glb" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://r2o3lbp1qctj" path="res://assets/Models/Oceanfloor/oceanfloor.glb" id="4_rgh2o"]
 [ext_resource type="Script" uid="uid://d2v8k3trubk63" path="res://scripts/Platformtile.gd" id="5_bmxlf"]
 [ext_resource type="Material" uid="uid://djgxlt413xlm2" path="res://assets/Models/Oceanfloor/Ocean_floor.tres" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://dpegj7v01ryu7" path="res://assets/Models/gold/gold pile_bestest.glb" id="6_v1gob"]
 [ext_resource type="Script" uid="uid://cfd65lroakqev" path="res://scripts/wave_manager.gd" id="7_jw32o"]
+[ext_resource type="AudioStream" uid="uid://cr6renh5rghno" path="res://assets/ambience/gentle-ocean-waves-birdsong-and-gull-7109.mp3" id="11_4kpch"]
+[ext_resource type="Script" uid="uid://bufehaimuxldc" path="res://scripts/music_player.gd" id="12_grg3l"]
+[ext_resource type="AudioStream" uid="uid://dsf83eiip37v0" path="res://assets/Soundtrack/7_seas_under_the_moon.mp3" id="13_2w5on"]
+[ext_resource type="AudioStream" uid="uid://d6t5ge2xovkc" path="res://assets/Soundtrack/Bruno_Belotti_-_Benvenuta_Estate_Mazurka_Short_Loop.ogg" id="14_346fj"]
+[ext_resource type="AudioStream" uid="uid://d181eu7syvhv4" path="res://assets/Soundtrack/oga_jam_menu_music_loopable.ogg" id="15_0sclb"]
+[ext_resource type="AudioStream" uid="uid://bsajcsyequqch" path="res://assets/Soundtrack/Small_Sleepy_Town.mp3" id="16_sxkr1"]
+[ext_resource type="AudioStream" uid="uid://erumv1x5aler" path="res://assets/Soundtrack/Sunday Afternoon.ogg" id="17_fq0cl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0sclb"]
+font_size = 60
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pbw6q"]
 panorama = ExtResource("1_kln2b")
@@ -21,9 +32,12 @@ sky_material = SubResource("PanoramaSkyMaterial_pbw6q")
 background_mode = 2
 sky = SubResource("Sky_v1gob")
 ambient_light_source = 3
-fog_enabled = true
-fog_density = 0.008
+fog_density = 0.02
 fog_sky_affect = 0.288
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.14
+volumetric_fog_albedo = Color(0.48491853, 0.7317682, 0.99655634, 1)
+volumetric_fog_sky_affect = 0.515
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pbw6q"]
 points = PackedVector3Array(1.0866202, -0.006673015, 0.89138174, -0.88356334, 0.05496306, 0.9865634, 1.0261724, 0.15250841, -0.7322744, 1.0261724, -0.19772065, 0.82782316, 1.0580885, -0.16585445, -0.82782316, -0.7248231, 0.18437463, 0.70035833, -0.5337256, -0.16585445, 0.70035833, 1.0261724, 0.12067961, 1.0189207, -0.85208845, 0.15250841, -0.7641905, 1.0261724, 0.12067961, -1.0189207, -0.85208845, -0.13402563, -1.0189207, -0.82017237, -0.10215943, 1.0189207, -0.3745442, -0.16585445, -0.85953975, -0.82017237, 0.15250841, 1.0189207, 0.8033584, -0.13398823, -1.0189207, 1.1219207, 0.12067961, -0.7322744, 0.42136288, -0.13398823, 1.0189207, -0.85208845, 0.0888134, -1.0189207, -0.88400453, -0.13402563, 0.66864175, -0.9159206, 0.12064221, -0.7641905, 1.0580885, 0.15250841, -0.06343319, 0.3894468, -0.19772065, 0.7959071, 1.0900047, -0.13398823, -0.82782316, -0.9159206, 0.12064221, 0.70035833, 1.0509692, -0.06781301, 0.978623, 1.0900047, 0.12067961, 0.9233719, -0.88400453, -0.13402563, -0.85953975, 1.0261724, -0.10215943, -1.0189207, -0.24727887, 0.12064221, -1.0189207, 1.1219207, 0.12067961, -0.06343319, -0.66099095, 0.18437463, 0.70035833, 0.7078096, -0.19772065, 0.85953975)
@@ -31,6 +45,26 @@ points = PackedVector3Array(1.0866202, -0.006673015, 0.89138174, -0.88356334, 0.
 [node name="Main" type="Node3D"]
 script = ExtResource("1_vy5pj")
 wave_scene = ExtResource("2_bmxlf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 847.5
+offset_right = 887.5
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 205.0
+offset_bottom = 83.0
+grow_horizontal = 2
+text = "Wave: 0"
+label_settings = SubResource("LabelSettings_0sclb")
+script = ExtResource("3_346fj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.66715693, 0, 0.7449173, 0, 1, 0, -0.7449173, 0, -0.66715693, 0, 1.9031861, 0)
@@ -228,6 +262,20 @@ shape = SubResource("ConvexPolygonShape3D_pbw6q")
 
 [node name="TargetPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2700715, 0, 0.9761001)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4kpch")
+volume_db = -6.029
+autoplay = true
+bus = &"Ambience"
+
+[node name="MusicPlayer" type="Node3D" parent="."]
+script = ExtResource("12_grg3l")
+music_tracks = Array[AudioStream]([ExtResource("13_2w5on"), ExtResource("14_346fj"), ExtResource("15_0sclb"), ExtResource("16_sxkr1"), ExtResource("17_fq0cl")])
+
+[node name="audioplayer" type="AudioStreamPlayer" parent="MusicPlayer"]
+volume_db = -5.5
+bus = &"music"
 
 [editable path="oceanfloor"]
 [editable path="PlatformRoot/RaftPiece"]
