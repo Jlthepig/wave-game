@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://d181eu7syvhv4" path="res://assets/Soundtrack/oga_jam_menu_music_loopable.ogg" id="15_0sclb"]
 [ext_resource type="AudioStream" uid="uid://bsajcsyequqch" path="res://assets/Soundtrack/Small_Sleepy_Town.mp3" id="16_sxkr1"]
 [ext_resource type="AudioStream" uid="uid://erumv1x5aler" path="res://assets/Soundtrack/Sunday Afternoon.ogg" id="17_fq0cl"]
-[ext_resource type="PackedScene" uid="uid://5npy6123r17t" path="res://assets/Models/Pick_Ups/Driftwood/Ocean_planks.glb" id="19_0sclb"]
+[ext_resource type="PackedScene" uid="uid://dehr1yo2dy0cg" path="res://assets/Models/Pick_Ups/Driftwood/plank.glb" id="20_sxkr1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0sclb"]
 font_size = 60
@@ -282,8 +282,8 @@ music_tracks = Array[AudioStream]([ExtResource("13_2w5on"), ExtResource("14_346f
 volume_db = -5.5
 bus = &"music"
 
-[node name="Ocean_planks" parent="." instance=ExtResource("19_0sclb")]
-transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, -1.5243653, 0.1935947, 1.5746934)
+[node name="plank" parent="." instance=ExtResource("20_sxkr1")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.7019966, 0.23900154, 2.7871983)
 
 [editable path="oceanfloor"]
 [editable path="PlatformRoot/RaftPiece"]

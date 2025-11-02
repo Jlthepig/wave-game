@@ -1,7 +1,14 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://bjs7athdcuuyo"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bjs7athdcuuyo"]
+
+[ext_resource type="Shader" uid="uid://lm0bikftmguj" path="res://assets/Textures/outline/outlineimproved.gdshader" id="1_5f71w"]
 
 [resource]
-cull_mode = 1
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.02
+render_priority = 0
+shader = ExtResource("1_5f71w")
+shader_parameter/scale = 2.0
+shader_parameter/outline_spread = 6.5
+shader_parameter/_Color = Color(0, 0, 0, 1)
+shader_parameter/_DepthNormalThreshold = 0.1
+shader_parameter/_DepthNormalThresholdScale = 3.0
+shader_parameter/_DepthThreshold = 1.5
+shader_parameter/_NormalThreshold = 2.0

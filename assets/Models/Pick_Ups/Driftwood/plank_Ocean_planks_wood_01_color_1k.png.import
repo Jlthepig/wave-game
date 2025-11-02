@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb06ngagyu810"
-path.s3tc="res://.godot/imported/Ocean_planks_wood_01_roughness_1k.png-2aa203abdb7b3550196af3f2bd0558af.s3tc.ctex"
+uid="uid://dn820jbnn7glp"
+path.s3tc="res://.godot/imported/plank_Ocean_planks_wood_01_color_1k.png-4a1d87627ad06577fe2cf6cd8874acbc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4a67441093fe263f59104a1e77933003"
+"md5": "ce6089660ef5560e8930295b3166a99b"
 }
 
 [deps]
 
-source_file="res://assets/Models/Pick_Ups/Driftwood/Ocean_planks_wood_01_roughness_1k.png"
-dest_files=["res://.godot/imported/Ocean_planks_wood_01_roughness_1k.png-2aa203abdb7b3550196af3f2bd0558af.s3tc.ctex"]
+source_file="res://assets/Models/Pick_Ups/Driftwood/plank_Ocean_planks_wood_01_color_1k.png"
+dest_files=["res://.godot/imported/plank_Ocean_planks_wood_01_color_1k.png-4a1d87627ad06577fe2cf6cd8874acbc.s3tc.ctex"]
 
 [params]
 

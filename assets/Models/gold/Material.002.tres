@@ -1,11 +1,22 @@
-[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ptx2frptwsyk"]
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://ptx2frptwsyk"]
 
 [ext_resource type="Texture2D" uid="uid://cpmuyfcs5rett" path="res://assets/Models/gold/gold pile_bestest_stylized coins_diff.png" id="1_owgw8"]
-[ext_resource type="Material" uid="uid://bjs7athdcuuyo" path="res://assets/Textures/outline/Outline.tres" id="2_6bkxw"]
+[ext_resource type="Shader" uid="uid://lm0bikftmguj" path="res://assets/Textures/outline/outlineimproved.gdshader" id="2_6bkxw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5u35h"]
+render_priority = 0
+shader = ExtResource("2_6bkxw")
+shader_parameter/scale = 2.0
+shader_parameter/outline_spread = 6.5
+shader_parameter/_Color = Color(0, 0, 0, 1)
+shader_parameter/_DepthNormalThreshold = 0.1
+shader_parameter/_DepthNormalThresholdScale = 3.0
+shader_parameter/_DepthThreshold = 1.5
+shader_parameter/_NormalThreshold = 2.0
 
 [resource]
 resource_name = "Material.002"
-next_pass = ExtResource("2_6bkxw")
+next_pass = SubResource("ShaderMaterial_5u35h")
 cull_mode = 2
 diffuse_mode = 3
 specular_mode = 1

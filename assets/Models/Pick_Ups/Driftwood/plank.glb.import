@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5npy6123r17t"
-path="res://.godot/imported/Ocean_planks.glb-5b936752b140fe5e0bf4e5e56407f624.scn"
+uid="uid://dehr1yo2dy0cg"
+path="res://.godot/imported/plank.glb-2b1c97e29414961658d1de65153b023f.scn"
 
 [deps]
 
-source_file="res://assets/Models/Pick_Ups/Driftwood/Ocean_planks.glb"
-dest_files=["res://.godot/imported/Ocean_planks.glb-5b936752b140fe5e0bf4e5e56407f624.scn"]
+source_file="res://assets/Models/Pick_Ups/Driftwood/plank.glb"
+dest_files=["res://.godot/imported/plank.glb-2b1c97e29414961658d1de65153b023f.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Material.001": {
+"Oceanplanks": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://assets/Models/Pick_Ups/Driftwood/Material.001.tres",
 "use_external/path": "uid://54idv8osfhof"
