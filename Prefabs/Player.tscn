@@ -1,17 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://df1ke1mpj4h3"]
+[gd_scene load_steps=10 format=3 uid="uid://df1ke1mpj4h3"]
 
 [ext_resource type="Script" uid="uid://bi8man6qcwj7k" path="res://Prefabs/player.gd" id="1_um8lo"]
 [ext_resource type="Texture2D" uid="uid://dqdmjbue066ht" path="res://assets/Textures/Crosshair.png" id="2_x3d5u"]
+[ext_resource type="PackedScene" uid="uid://bomyymrooqsgh" path="res://assets/ui/slot.tscn" id="3_b43ah"]
+[ext_resource type="Script" uid="uid://cn8x4cug21h73" path="res://scripts/inventoryui.gd" id="3_vxq8l"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4ynan"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_um8lo"]
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Camera")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3d5u"]
+bg_color = Color(0.33390468, 0.16609448, 2.4065375e-08, 1)
+border_width_left = 13
+border_width_top = 13
+border_width_right = 13
+border_width_bottom = 13
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.24313726)
+shadow_size = 20
+
+[sub_resource type="Theme" id="Theme_b43ah"]
+Panel/styles/panel = SubResource("StyleBoxFlat_x3d5u")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3d5u"]
+font_size = 90
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.30980393)
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Camera") groups=["platyer"]]
 script = ExtResource("1_um8lo")
 Camera = NodePath("Camera3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+cast_shadow = 0
 mesh = SubResource("CapsuleMesh_4ynan")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -33,3 +61,212 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_x3d5u")
+
+[node name="Inventory" type="Control" parent="." groups=["inventory_ui"]]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_vxq8l")
+
+[node name="Panel" type="Panel" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -614.0
+offset_top = -329.0
+offset_right = 614.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b43ah")
+
+[node name="GridContainer" type="GridContainer" parent="Inventory/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -423.0
+offset_top = -244.0
+offset_right = 423.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 49
+theme_override_constants/v_separation = 49
+columns = 5
+
+[node name="Slot" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot2" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot3" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot4" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot5" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot6" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot7" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot8" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot9" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot10" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot11" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot12" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot13" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot14" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Slot15" parent="Inventory/Panel/GridContainer" instance=ExtResource("3_b43ah")]
+custom_minimum_size = Vector2(130, 130)
+layout_mode = 2
+theme_override_constants/icon_max_width = 128
+theme_override_font_sizes/font_size = 59
+text = "
+"
+icon_alignment = 1
+
+[node name="Heading" type="Label" parent="Inventory"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -231.0
+offset_top = 73.0
+offset_right = 235.0
+offset_bottom = 350.0
+grow_horizontal = 2
+text = "Inventory
+"
+label_settings = SubResource("LabelSettings_x3d5u")
+horizontal_alignment = 1
+
+[editable path="Inventory/Panel/GridContainer/Slot"]
+[editable path="Inventory/Panel/GridContainer/Slot2"]
+[editable path="Inventory/Panel/GridContainer/Slot3"]
+[editable path="Inventory/Panel/GridContainer/Slot4"]
+[editable path="Inventory/Panel/GridContainer/Slot5"]
+[editable path="Inventory/Panel/GridContainer/Slot6"]
+[editable path="Inventory/Panel/GridContainer/Slot7"]
+[editable path="Inventory/Panel/GridContainer/Slot8"]
+[editable path="Inventory/Panel/GridContainer/Slot9"]
+[editable path="Inventory/Panel/GridContainer/Slot10"]
+[editable path="Inventory/Panel/GridContainer/Slot11"]
+[editable path="Inventory/Panel/GridContainer/Slot12"]
+[editable path="Inventory/Panel/GridContainer/Slot13"]
+[editable path="Inventory/Panel/GridContainer/Slot14"]
+[editable path="Inventory/Panel/GridContainer/Slot15"]

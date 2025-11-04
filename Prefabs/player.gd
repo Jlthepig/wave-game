@@ -15,22 +15,57 @@ var pitch: float = 0.0
 @export var Camera: Camera3D
 
 @export_category("Head Bob")
-@export var bob_freq: float = 2.0  # Frequency of head bob
-@export var bob_amp: float = 0.08  # Amplitude of head bob
-@export var breathing_freq: float = 0.3  # Breathing frequency (slower)
-@export var breathing_amp: float = 0.02  # Breathing amplitude (subtle)
+@export var bob_freq: float = 2.0
+@export var bob_amp: float = 0.08
+@export var breathing_freq: float = 0.3
+@export var breathing_amp: float = 0.02
 
 var bob_time: float = 0.0
 var breathing_time: float = 0.0
 var camera_origin: Vector3
 
+# Inventory
+var inventory := {
+	"driftwood": 0,
+	"WornRope": 0,
+}
+
+var current_pickup: Area3D = null
+
+func add_resource(type: String, amount: int):
+	inventory[type] = inventory.get(type, 0) + amount
+	print("Collected ", type, " → total: ", inventory[type])	
+	
+	# Update inventory UI
+	var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
+	if inv_ui:
+		inv_ui.update_inventory(inventory)
+
+func has_resources(cost: Dictionary) -> bool:
+	for res in cost.keys():
+		if inventory.get(res, 0) < cost[res]:
+			return false
+	return true
+
+func consume_resources(cost: Dictionary):
+	for res in cost.keys():
+		inventory[res] -= cost[res]
+	
+	# Update UI after consuming
+	var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
+	if inv_ui:
+		inv_ui.update_inventory(inventory)
+
 func _ready():
+	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	if Camera:
 		camera_origin = Camera.position
 
 func _input(event):
-	if event is InputEventMouseMotion and mouse_locked:
+	# Only handle mouse movement if not paused
+	if event is InputEventMouseMotion and mouse_locked and not get_tree().paused:
 		# Rotate character body horizontally (yaw)
 		rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 		
@@ -40,20 +75,25 @@ func _input(event):
 		Camera.rotation_degrees.x = pitch
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+	# ESC key for mouse unlock (separate from inventory)
+	if Input.is_action_just_pressed("ui_cancel") and not get_tree().paused:
 		mouse_locked = !mouse_locked
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if not mouse_locked else Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Don't process movement if paused
+	if get_tree().paused:
+		return
+	
+	# Add the gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	# Handle jump.
+	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	# Get the input direction and handle the movement/deceleration.
+	# Get the input direction and handle the movement/deceleration
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	

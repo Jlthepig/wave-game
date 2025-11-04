@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://debbq65velcoy"]
+[gd_scene load_steps=25 format=3 uid="uid://debbq65velcoy"]
 
 [ext_resource type="Texture2D" uid="uid://1fjpcprs8u4e" path="res://assets/Textures/sky/sky_14_2k.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://df1ke1mpj4h3" path="res://Prefabs/Player.tscn" id="1_r150o"]
@@ -8,10 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://chei0y2ogfjye" path="res://assets/Models/platform/Wave Game Assets.glb" id="3_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://r2o3lbp1qctj" path="res://assets/Models/Oceanfloor/oceanfloor.glb" id="4_rgh2o"]
 [ext_resource type="Script" uid="uid://d2v8k3trubk63" path="res://scripts/Platformtile.gd" id="5_bmxlf"]
-[ext_resource type="Material" uid="uid://djgxlt413xlm2" path="res://assets/Models/Oceanfloor/Ocean_floor.tres" id="5_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://dpegj7v01ryu7" path="res://assets/Models/gold/gold pile_bestest.glb" id="6_v1gob"]
 [ext_resource type="Script" uid="uid://cfd65lroakqev" path="res://scripts/wave_manager.gd" id="7_jw32o"]
-[ext_resource type="PackedScene" uid="uid://cwi0lf2uti6y8" path="res://assets/Models/Pick_Ups/Rope/rope_pickup_better.glb" id="8_sxkr1"]
+[ext_resource type="Material" uid="uid://c3mh5p2w5s8g7" path="res://assets/Textures/watershader/Water.tres" id="7_sxkr1"]
 [ext_resource type="AudioStream" uid="uid://cr6renh5rghno" path="res://assets/ambience/gentle-ocean-waves-birdsong-and-gull-7109.mp3" id="11_4kpch"]
 [ext_resource type="Script" uid="uid://bufehaimuxldc" path="res://scripts/music_player.gd" id="12_grg3l"]
 [ext_resource type="AudioStream" uid="uid://dsf83eiip37v0" path="res://assets/Soundtrack/7_seas_under_the_moon.mp3" id="13_2w5on"]
@@ -19,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://d181eu7syvhv4" path="res://assets/Soundtrack/oga_jam_menu_music_loopable.ogg" id="15_0sclb"]
 [ext_resource type="AudioStream" uid="uid://bsajcsyequqch" path="res://assets/Soundtrack/Small_Sleepy_Town.mp3" id="16_sxkr1"]
 [ext_resource type="AudioStream" uid="uid://erumv1x5aler" path="res://assets/Soundtrack/Sunday Afternoon.ogg" id="17_fq0cl"]
-[ext_resource type="PackedScene" uid="uid://dehr1yo2dy0cg" path="res://assets/Models/Pick_Ups/Driftwood/plank.glb" id="20_sxkr1"]
+[ext_resource type="Script" uid="uid://cg3gt3ahnnpx" path="res://scripts/resource_spawner.gd" id="21_fq0cl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0sclb"]
 font_size = 60
@@ -82,11 +81,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2581801, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5368014, -0.34895498, -1.9827758)
 
 [node name="Plane" parent="oceanfloor" index="0"]
-transform = Transform3D(12, 0, 0, 0, 1.7, 0, 0, 0, 12, -0.0017845631, 0.042321563, 0.0070967674)
-material_override = ExtResource("5_pbw6q")
-
-[node name="rope_pickup_better" parent="oceanfloor" instance=ExtResource("8_sxkr1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1533434, -0.3626666, 3.1139817)
+transform = Transform3D(12, 0, 0, 0, 1.7, 0, 0, 0, 12, -0.0061199665, 0.042321563, 0.009063482)
+material_override = ExtResource("7_sxkr1")
 
 [node name="gold pile_bestest" parent="." instance=ExtResource("6_v1gob")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3781552, 0.13875294, 0.87845683)
@@ -269,7 +265,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2700715, 0, 0.9761001)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_4kpch")
-volume_db = -6.029
+volume_db = -3.167
 autoplay = true
 bus = &"Ambience"
 
@@ -278,11 +274,15 @@ script = ExtResource("12_grg3l")
 music_tracks = Array[AudioStream]([ExtResource("13_2w5on"), ExtResource("14_346fj"), ExtResource("15_0sclb"), ExtResource("16_sxkr1"), ExtResource("17_fq0cl")])
 
 [node name="audioplayer" type="AudioStreamPlayer" parent="MusicPlayer"]
-volume_db = -5.5
+volume_db = -11.0
 bus = &"music"
 
-[node name="plank" parent="." instance=ExtResource("20_sxkr1")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.7019966, 0.23900154, 2.7871983)
+[node name="ResourceSpawner" type="Node3D" parent="." node_paths=PackedStringArray("target_point")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0901928, 0, 0.7873029)
+script = ExtResource("21_fq0cl")
+target_point = NodePath("../TargetPoint")
+spawn_radius = 20.0
+spawn_interval = 4.0
 
 [editable path="oceanfloor"]
 [editable path="PlatformRoot/RaftPiece"]

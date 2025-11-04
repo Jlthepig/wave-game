@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch577wesep22n"]
+
+[ext_resource type="PackedScene" uid="uid://cwi0lf2uti6y8" path="res://assets/Models/Pick_Ups/Rope/rope_pickup_better.glb" id="1_lt54k"]
+[ext_resource type="Script" uid="uid://cay7jjf7t5wub" path="res://scripts/Pickup.gd" id="1_ny181"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ny181"]
+radius = 3.3
+
+[node name="RopePickup" type="Area3D"]
+script = ExtResource("1_ny181")
+resource_type = "WornRope"
+lifetime = 10.0
+target_point = Vector3(3.2700715, 0, 0.9761001)
+
+[node name="rope_pickup_better" parent="." instance=ExtResource("1_lt54k")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24686658, 0)
+shape = SubResource("SphereShape3D_ny181")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9349829, 0)
+pixel_size = 0.02
+billboard = 1
+texture_filter = 0
+text = "E"
+font_size = 22
+outline_size = 7
+
+[editable path="rope_pickup_better"]
