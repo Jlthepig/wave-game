@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://debbq65velcoy"]
+[gd_scene load_steps=27 format=3 uid="uid://debbq65velcoy"]
 
 [ext_resource type="Texture2D" uid="uid://1fjpcprs8u4e" path="res://assets/Textures/sky/sky_14_2k.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://df1ke1mpj4h3" path="res://Prefabs/Player.tscn" id="1_r150o"]
@@ -18,7 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://d181eu7syvhv4" path="res://assets/Soundtrack/oga_jam_menu_music_loopable.ogg" id="15_0sclb"]
 [ext_resource type="AudioStream" uid="uid://bsajcsyequqch" path="res://assets/Soundtrack/Small_Sleepy_Town.mp3" id="16_sxkr1"]
 [ext_resource type="AudioStream" uid="uid://erumv1x5aler" path="res://assets/Soundtrack/Sunday Afternoon.ogg" id="17_fq0cl"]
+[ext_resource type="PackedScene" uid="uid://cusefexbqbyl7" path="res://assets/Models/Stairs/staircase_wavegame.glb" id="20_fq0cl"]
 [ext_resource type="Script" uid="uid://cg3gt3ahnnpx" path="res://scripts/resource_spawner.gd" id="21_fq0cl"]
+[ext_resource type="PackedScene" uid="uid://pa4nibuxafi4" path="res://assets/Models/Walls/wall_wavegame.glb" id="21_hwpts"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0sclb"]
 font_size = 60
@@ -283,6 +285,12 @@ script = ExtResource("21_fq0cl")
 target_point = NodePath("../TargetPoint")
 spawn_radius = 20.0
 spawn_interval = 4.0
+
+[node name="staircase_wavegame" parent="." instance=ExtResource("20_fq0cl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.384663, 0.15750802, -1.9524851)
+
+[node name="wall_wavegame" parent="." instance=ExtResource("21_hwpts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [editable path="oceanfloor"]
 [editable path="PlatformRoot/RaftPiece"]

@@ -1,28 +1,24 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://djgxlt413xlm2"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://djgxlt413xlm2"]
 
-[ext_resource type="Shader" uid="uid://cabhkhcjvngv8" path="res://assets/Textures/watershader/water.gdshader" id="1_fmhw3"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_fmhw3"]
-noise_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1n8pm"]
-noise = SubResource("FastNoiseLite_fmhw3")
+[ext_resource type="Shader" uid="uid://h4rsm2o3otmh" path="res://assets/Textures/watershader/water.gdshader" id="1_fmhw3"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_fmhw3")
-shader_parameter/wave_speed = 0.5
-shader_parameter/wave_height = 0.15
-shader_parameter/wave_frequency = 2.0
-shader_parameter/deep_color = Color(0.24942586, 0.79849786, 0.99999994, 1)
-shader_parameter/shallow_color = Color(0.3, 0.7, 0.95, 1)
-shader_parameter/foam_color = Color(1, 1, 1, 1)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_1n8pm")
-shader_parameter/edge_foam_distance = 1.5600000741
-shader_parameter/edge_foam_falloff = 5.0
-shader_parameter/foam_scale = 3.0
-shader_parameter/foam_threshold = 0.65
-shader_parameter/foam_speed = 0.3
-shader_parameter/color_bands = 3
-shader_parameter/specular_strength = 0.8
-shader_parameter/specular_size = 0.3
+shader_parameter/albedo = Color(0, 0, 0, 1)
+shader_parameter/albedo2 = Color(0, 0, 0, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.15
+shader_parameter/color_deep = Color(0, 0, 0, 1)
+shader_parameter/color_shallow = Color(0, 0, 0, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)

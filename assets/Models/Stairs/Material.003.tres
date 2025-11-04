@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bj6hennu6q8nf"]
+
+[ext_resource type="Texture2D" uid="uid://bppn7l31wnvpb" path="res://assets/Models/Stairs/staircase_wavegame_Rope_001_basecolor.jpg" id="1_75e1i"]
+[ext_resource type="Texture2D" uid="uid://dumpqlpcwya3y" path="res://assets/Models/Stairs/staircase_wavegame_Rope_001_roughness.png" id="2_xiw4n"]
+[ext_resource type="Texture2D" uid="uid://dvmoho3brhwcd" path="res://assets/Models/Stairs/staircase_wavegame_Rope_001_normal.jpg" id="3_od4mn"]
+[ext_resource type="Material" uid="uid://bjs7athdcuuyo" path="res://assets/Textures/outline/Outline.tres" id="3_xiw4n"]
+
+[resource]
+resource_name = "Material.003"
+next_pass = ExtResource("3_xiw4n")
+cull_mode = 2
+albedo_texture = ExtResource("1_75e1i")
+metallic_texture = ExtResource("2_xiw4n")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_xiw4n")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_od4mn")

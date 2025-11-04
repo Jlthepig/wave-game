@@ -12,4 +12,5 @@ height = 128
 noise = SubResource("FastNoiseLite_0fbhj")
 seamless = true
 as_normal_map = true
-bump_strength = 1.4
+seamless_blend_skirt = 1.0
+bump_strength = 1.5

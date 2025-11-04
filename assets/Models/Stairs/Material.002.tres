@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dxx1bj0cpu6bc"]
+
+[ext_resource type="Texture2D" uid="uid://cma1rokj1m1jl" path="res://assets/Models/Stairs/staircase_wavegame_stylized stump texture.png" id="1_hx213"]
+[ext_resource type="Material" uid="uid://bjs7athdcuuyo" path="res://assets/Textures/outline/Outline.tres" id="2_owqrl"]
+
+[resource]
+resource_name = "Material.002"
+next_pass = ExtResource("2_owqrl")
+cull_mode = 2
+albedo_texture = ExtResource("1_hx213")
+roughness = 0.5
