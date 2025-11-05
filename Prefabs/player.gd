@@ -37,6 +37,9 @@ var build_mode : bool = false
 var current_piece : String = "floor"  # can be "floor", "wall", "stair"
 @onready var build_manager: Node3D = $BuildManager
 
+#animation
+@onready var animation_tree: AnimationTree = $Camera3D/fpsarms/AnimationTree
+
 
 func add_resource(type: String, amount: int):
 	inventory[type] = inventory.get(type, 0) + amount
@@ -64,6 +67,11 @@ func consume_resources(cost: Dictionary):
 	if inv_ui:
 		inv_ui.update_inventory(inventory)
 
+
+func play_collect_animation():
+	if animation_tree:
+		var state_machine = animation_tree.get("parameters/playback")
+		state_machine.travel("Collect")
 func _ready():
 	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

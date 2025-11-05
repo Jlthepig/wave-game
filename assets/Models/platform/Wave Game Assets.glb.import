@@ -54,6 +54,17 @@ _subresources={
 "use_external/fallback_path": "res://assets/Models/platform/Material.003.tres",
 "use_external/path": "uid://ci2f1tvii0cm2"
 }
+},
+"meshes": {
+"Wave Game Assets_Cylinder_015": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/Models/platform/floor.res",
+"save_to_file/path": "uid://b4i2tjqag1b1h"
+}
 }
 }
 gltf/naming_version=2
