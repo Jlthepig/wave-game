@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://df1ke1mpj4h3"]
+[gd_scene load_steps=11 format=3 uid="uid://df1ke1mpj4h3"]
 
 [ext_resource type="Script" uid="uid://bi8man6qcwj7k" path="res://Prefabs/player.gd" id="1_um8lo"]
 [ext_resource type="Texture2D" uid="uid://dqdmjbue066ht" path="res://assets/Textures/Crosshair.png" id="2_x3d5u"]
 [ext_resource type="PackedScene" uid="uid://bomyymrooqsgh" path="res://assets/ui/slot.tscn" id="3_b43ah"]
 [ext_resource type="Script" uid="uid://cn8x4cug21h73" path="res://scripts/inventoryui.gd" id="3_vxq8l"]
+[ext_resource type="Script" uid="uid://u1iwywsnacoj" path="res://scripts/build_manager.gd" id="5_vxq8l"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4ynan"]
 
@@ -35,6 +36,7 @@ shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.30980393)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("Camera") groups=["platyer"]]
+floor_max_angle = 1.0471976
 script = ExtResource("1_um8lo")
 Camera = NodePath("Camera3D")
 
@@ -254,6 +256,11 @@ text = "Inventory
 "
 label_settings = SubResource("LabelSettings_x3d5u")
 horizontal_alignment = 1
+
+[node name="BuildManager" type="Node3D" parent="."]
+script = ExtResource("5_vxq8l")
+grid_size = 1.0
+max_build_distance = 4.0
 
 [editable path="Inventory/Panel/GridContainer/Slot"]
 [editable path="Inventory/Panel/GridContainer/Slot2"]

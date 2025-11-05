@@ -32,6 +32,12 @@ var inventory := {
 
 var current_pickup: Area3D = null
 
+# building
+var build_mode : bool = false
+var current_piece : String = "floor"  # can be "floor", "wall", "stair"
+@onready var build_manager: Node3D = $BuildManager
+
+
 func add_resource(type: String, amount: int):
 	inventory[type] = inventory.get(type, 0) + amount
 	print("Collected ", type, " → total: ", inventory[type])	
@@ -39,6 +45,8 @@ func add_resource(type: String, amount: int):
 	# Update inventory UI
 	var inv_ui = get_tree().get_first_node_in_group("inventory_ui")
 	if inv_ui:
+		if build_manager:
+			build_manager.set_inventory(inventory)
 		inv_ui.update_inventory(inventory)
 
 func has_resources(cost: Dictionary) -> bool:
@@ -60,6 +68,9 @@ func _ready():
 	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	build_manager.camera = Camera
+	build_manager.set_inventory(inventory)
+	
 	if Camera:
 		camera_origin = Camera.position
 
@@ -73,6 +84,10 @@ func _input(event):
 		pitch -= event.relative.y * sensitivity
 		pitch = clamp(pitch, min_pitch, max_pitch)
 		Camera.rotation_degrees.x = pitch
+		
+	if event.is_action_pressed("toggle_build"):
+		build_mode = !build_mode
+		print("Build mode:", build_mode)
 
 func _process(delta: float) -> void:
 	# ESC key for mouse unlock (separate from inventory)
