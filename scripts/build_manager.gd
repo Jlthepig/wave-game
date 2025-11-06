@@ -21,11 +21,21 @@ var current_piece_cost := {}
 var player_inventory: Dictionary
 var current_rotation: float = 0.0
 
+const HOUSE_BUILDING_89157 = preload("uid://ckxsamt426hop")
+
+
+@onready var sfx: AudioStreamPlayer = $"../Sfx"
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func set_inventory(inv: Dictionary):
 	player_inventory = inv
+
+
+func _playBuildSound():
+	sfx.stream = HOUSE_BUILDING_89157
+	sfx.play()
 
 func _input(event):
 	if event.is_action_pressed("build_floor"):
@@ -49,6 +59,7 @@ func start_build_mode(build_scene: PackedScene, preview_scene: PackedScene):
 	current_build_scene = build_scene
 	current_preview_scene = preview_scene
 	current_rotation = 0.0
+	
 	
 	if preview:
 		preview.queue_free()
@@ -124,6 +135,7 @@ func try_place_build():
 	new_build.rotation_degrees.y = current_rotation
 	get_tree().current_scene.add_child(new_build)
 	consume_resources(current_piece_cost)
+	_playBuildSound()
 	print("✅ Built structure at rotation: ", current_rotation, "°")
 
 func has_enough_resources(cost: Dictionary) -> bool:

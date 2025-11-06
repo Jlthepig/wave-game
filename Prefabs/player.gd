@@ -41,6 +41,11 @@ var current_piece : String = "floor"  # can be "floor", "wall", "stair"
 @onready var animation_tree: AnimationTree = $Camera3D/fpsarms/AnimationTree
 
 
+#sfx
+const LEATHER_INVENTORYSOUND = preload("uid://bbo3lhug6siq4")
+@onready var sfx: AudioStreamPlayer = $Sfx
+const LEATHER_INVENTORY = preload("uid://bbo3lhug6siq4")
+ 
 func add_resource(type: String, amount: int):
 	inventory[type] = inventory.get(type, 0) + amount
 	print("Collected ", type, " → total: ", inventory[type])	
@@ -72,6 +77,9 @@ func play_collect_animation():
 	if animation_tree:
 		var state_machine = animation_tree.get("parameters/playback")
 		state_machine.travel("Collect")
+		sfx.stream = LEATHER_INVENTORYSOUND
+		sfx.play()
+		
 func _ready():
 	add_to_group("player")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
