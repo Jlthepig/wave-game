@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://debbq65velcoy"]
+[gd_scene load_steps=30 format=4 uid="uid://debbq65velcoy"]
 
 [ext_resource type="Texture2D" uid="uid://1fjpcprs8u4e" path="res://assets/Textures/sky/sky_14_2k.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://df1ke1mpj4h3" path="res://Prefabs/Player.tscn" id="1_r150o"]
@@ -21,6 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://bsajcsyequqch" path="res://assets/Soundtrack/Small_Sleepy_Town.mp3" id="16_sxkr1"]
 [ext_resource type="AudioStream" uid="uid://erumv1x5aler" path="res://assets/Soundtrack/Sunday Afternoon.ogg" id="17_fq0cl"]
 [ext_resource type="Script" uid="uid://cg3gt3ahnnpx" path="res://scripts/resource_spawner.gd" id="21_fq0cl"]
+[ext_resource type="PackedScene" uid="uid://ctnid0lhmno4b" path="res://assets/Island/island_wave_game.glb" id="22_hwpts"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0sclb"]
 font_size = 60
@@ -35,12 +36,31 @@ sky_material = SubResource("PanoramaSkyMaterial_pbw6q")
 background_mode = 2
 sky = SubResource("Sky_v1gob")
 ambient_light_source = 3
-fog_density = 0.02
-fog_sky_affect = 0.288
+tonemap_mode = 2
+tonemap_exposure = 0.66
+ssr_fade_in = 0.24367599
+ssr_depth_tolerance = 12.61
+ssao_enabled = true
+sdfgi_bounce_feedback = 0.56
+sdfgi_min_cell_size = 0.89
+fog_mode = 1
+fog_light_energy = 1.15
+fog_density = 1.0
+fog_sky_affect = 0.535
+fog_depth_curve = 0.054409668
+fog_depth_begin = 100.0
+fog_depth_end = 4000.0
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.14
-volumetric_fog_albedo = Color(0.48491853, 0.7317682, 0.99655634, 1)
-volumetric_fog_sky_affect = 0.515
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(1.0216749, 1.2877817, 1.5720325, 1)
+volumetric_fog_emission = Color(0.12955844, 0.12955847, 0.12955844, 1)
+volumetric_fog_length = 128.09
+volumetric_fog_detail_spread = 6.0
+volumetric_fog_sky_affect = 0.334
+volumetric_fog_temporal_reprojection_enabled = false
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_saturation = 1.2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bvh01"]
 _surfaces = [{
@@ -421,5 +441,8 @@ script = ExtResource("21_fq0cl")
 target_point = NodePath("../TargetPoint")
 spawn_radius = 20.0
 spawn_interval = 4.0
+
+[node name="island_wave_game" parent="." instance=ExtResource("22_hwpts")]
+transform = Transform3D(-8.742278e-06, 0, -200, 0, 200, 0, 200, 0, -8.742278e-06, -1.9281311, -3.5517998, 478.40308)
 
 [editable path="oceanfloor"]

@@ -21,7 +21,7 @@ func _on_wave_started(wave_type: String):
 			damage = 40 * difficulty_scale
 			speed = 2.0
 		"tsunami":
-			damage = 60 * difficulty_scale
+			damage = 40 * difficulty_scale
 			speed = 4.0
 
 
