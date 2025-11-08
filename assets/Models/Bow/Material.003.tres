@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dfefy4vr86lq5"]
+
+[ext_resource type="Texture2D" uid="uid://dy8lebp658gte" path="res://assets/Models/Bow/BaAWg_Rope_001_roughness.png" id="1_rnbfm"]
+[ext_resource type="Texture2D" uid="uid://5aklqi1vs57p" path="res://assets/Models/Bow/BaAWg_Rope_001_normal.jpg" id="2_4vxsa"]
+[ext_resource type="Material" uid="uid://bjs7athdcuuyo" path="res://assets/Textures/outline/Outline.tres" id="2_edvon"]
+
+[resource]
+resource_name = "Material.003"
+next_pass = ExtResource("2_edvon")
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.5153962, 0.016456604, 0, 1)
+metallic_specular = 0.0
+metallic_texture = ExtResource("1_rnbfm")
+metallic_texture_channel = 2
+roughness = 0.45
+roughness_texture = ExtResource("1_rnbfm")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("2_4vxsa")
