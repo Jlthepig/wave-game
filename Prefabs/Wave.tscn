@@ -9,7 +9,7 @@ next_pass = ExtResource("2_rk0pn")
 diffuse_mode = 3
 specular_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.3415107, 0.7075639, 0.9067038, 1)
+albedo_color = Color(0.5647059, 0.9411765, 0.8627451, 1)
 metallic_specular = 0.0
 roughness = 0.0
 emission_enabled = true
@@ -96,7 +96,7 @@ script = ExtResource("1_rk0pn")
 transform = Transform3D(-1.6026874e-08, 0, 0.4605311, 0, 1, 0, -0.3666522, 0, -2.013045e-08, 0, 0, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="wave_wavegame"]
-transform = Transform3D(78.39428, 0, 0, 0, -1.1920929e-05, 67.06639, 5.456968e-12, -99.99999, -7.994938e-06, 0, 0, 0)
+transform = Transform3D(78.39428, 0, 1.0842022e-19, 0, -1.1920928e-05, 67.06638, 5.456968e-12, -99.99999, -7.994938e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_go0ds")
 skeleton = NodePath("")
 
