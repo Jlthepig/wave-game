@@ -18,12 +18,18 @@ config/icon="res://icon.svg"
 [autoload]
 
 MusicPlayer="*res://Scenes/music_player.tscn"
+AppConfig="*res://addons/maaacks_options_menus/base/scenes/autoloads/app_config.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/maaacks_options_menus/plugin.cfg")
 
 [global_group]
 
@@ -105,6 +111,15 @@ rotate_counter_clockwise={
 "deadzone": 0.2,
 "events": []
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://addons/maaacks_options_menus/base/translations/menus_translations.en.translation", "res://addons/maaacks_options_menus/base/translations/menus_translations.fr.translation")
+
+[maaacks_options_menus]
+
+copy_path="res://Scenes/"
+disable_install_wizard=true
 
 [rendering]
 
