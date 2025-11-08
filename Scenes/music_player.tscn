@@ -1,0 +1,16 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcyqa6g6w3kxo"]
+
+[ext_resource type="Script" uid="uid://bufehaimuxldc" path="res://scripts/music_player.gd" id="1_ut3a0"]
+[ext_resource type="AudioStream" uid="uid://dsf83eiip37v0" path="res://assets/Soundtrack/7_seas_under_the_moon.mp3" id="2_nnqcb"]
+[ext_resource type="AudioStream" uid="uid://d6t5ge2xovkc" path="res://assets/Soundtrack/Bruno_Belotti_-_Benvenuta_Estate_Mazurka_Short_Loop.ogg" id="3_cy1if"]
+[ext_resource type="AudioStream" uid="uid://d181eu7syvhv4" path="res://assets/Soundtrack/oga_jam_menu_music_loopable.ogg" id="4_hilfb"]
+[ext_resource type="AudioStream" uid="uid://bsajcsyequqch" path="res://assets/Soundtrack/Small_Sleepy_Town.mp3" id="5_qb4b4"]
+[ext_resource type="AudioStream" uid="uid://erumv1x5aler" path="res://assets/Soundtrack/Sunday Afternoon.ogg" id="6_b03an"]
+
+[node name="MusicPlayer" type="Node3D"]
+script = ExtResource("1_ut3a0")
+music_tracks = Array[AudioStream]([ExtResource("2_nnqcb"), ExtResource("3_cy1if"), ExtResource("4_hilfb"), ExtResource("5_qb4b4"), ExtResource("6_b03an")])
+
+[node name="audioplayer" type="AudioStreamPlayer" parent="."]
+volume_db = -11.0
+bus = &"music"

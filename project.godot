@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="WaveGame"
-run/main_scene="uid://debbq65velcoy"
+run/main_scene="uid://cfmgi5nu1krpc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MusicPlayer="*res://Scenes/music_player.tscn"
 
 [display]
 
