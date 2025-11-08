@@ -25,7 +25,7 @@ var breathing_time: float = 0.0
 var camera_origin: Vector3
 
 # Inventory
-var inventory := {
+@export var inventory := {
 	"driftwood": 0,
 	"WornRope": 0,
 }
@@ -151,11 +151,11 @@ func apply_head_bob(delta: float, is_moving: bool) -> void:
 		bob_time += delta * bob_freq
 		bob_offset.y = sin(bob_time * TAU) * bob_amp
 		bob_offset.x = cos(bob_time * TAU * 0.5) * bob_amp * 0.5
+		bob_offset.z != tan(1)
 	else:
 		# Idle breathing
 		breathing_time += delta * breathing_freq
 		bob_offset.y = sin(breathing_time * TAU) * breathing_amp
-		
 		# Smoothly reset bob_time when stopping
 		bob_time = lerp(bob_time, 0.0, delta * 5.0)
 	

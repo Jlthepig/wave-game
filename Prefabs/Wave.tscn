@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://b4e8dtyr4mnqt"]
+[gd_scene load_steps=13 format=4 uid="uid://b4e8dtyr4mnqt"]
 
 [ext_resource type="Script" uid="uid://bte1uelvpvk40" path="res://scripts/wave.gd" id="1_rk0pn"]
 [ext_resource type="Material" uid="uid://bjs7athdcuuyo" path="res://assets/Textures/outline/Outline.tres" id="2_rk0pn"]
@@ -85,21 +85,50 @@ _surfaces = [{
 }]
 shadow_mesh = SubResource("ArrayMesh_juuqj")
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rk0pn"]
+spread = 50.0
+initial_velocity_min = 0.01
+initial_velocity_max = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rk0pn"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q3ikq"]
+material = SubResource("StandardMaterial3D_rk0pn")
+radius = 0.1
+height = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3ikq"]
+albedo_color = Color(0, 0.6424271, 0.6424271, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0jl1g"]
+material = SubResource("StandardMaterial3D_q3ikq")
+radius = 0.05
+height = 8.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rk0pn"]
-size = Vector3(4.065796, 1.4224243, 0.7011719)
+size = Vector3(2.0488281, 1.756012, 1.6582031)
 
 [node name="Wave" type="Area3D"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 script = ExtResource("1_rk0pn")
 
 [node name="wave_wavegame" type="Node3D" parent="."]
-transform = Transform3D(-1.6026874e-08, 0, 0.4605311, 0, 1, 0, -0.3666522, 0, -2.013045e-08, 0, 0, 0)
+transform = Transform3D(-5.8281703e-06, 0, 66.667, 0, 160, 0, -133.333, 0, -2.9141072e-06, 0, 0, 0)
 
 [node name="Plane" type="MeshInstance3D" parent="wave_wavegame"]
-transform = Transform3D(78.39428, 0, 1.0842022e-19, 0, -1.1920928e-05, 67.06638, 5.456968e-12, -99.99999, -7.994938e-06, 0, 0, 0)
+transform = Transform3D(1, 6.960926e-14, 3.0427174e-21, 0, -4.371139e-08, 1, 6.960926e-14, -1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_go0ds")
 skeleton = NodePath("")
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="wave_wavegame"]
+transform = Transform3D(0.99999934, 9.735427e-08, 9.7354295e-08, -9.735425e-08, -4.371136e-08, 0.9999993, 9.7354246e-08, -0.99999934, -4.3711353e-08, 0.026059574, 0.012499994, 1.01479e-08)
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_rk0pn")
+draw_passes = 2
+draw_pass_1 = SubResource("SphereMesh_q3ikq")
+draw_pass_2 = SubResource("SphereMesh_0jl1g")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012878468, 0.6085452, -0.32625753)
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0.012878406, 1.0255297, -0.9326124)
 shape = SubResource("BoxShape3D_rk0pn")

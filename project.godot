@@ -120,6 +120,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_options_menus/base/t
 
 copy_path="res://Scenes/"
 disable_install_wizard=true
+disable_update_check=false
 
 [rendering]
 
