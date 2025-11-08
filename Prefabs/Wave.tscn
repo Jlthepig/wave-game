@@ -86,7 +86,7 @@ _surfaces = [{
 shadow_mesh = SubResource("ArrayMesh_juuqj")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rk0pn"]
-size = Vector3(0.076855466, 0.1, 0.1)
+size = Vector3(4.065796, 1.4224243, 0.7011719)
 
 [node name="Wave" type="Area3D"]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -101,5 +101,5 @@ mesh = SubResource("ArrayMesh_go0ds")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.2255764e-06, -86.38754, -7.994938e-06, 0, -1.02981985e-05, 67.06639, -28.03797, 3.7761188e-06, 3.4946975e-13, -1.4182698e-08, 3.27058, -0.3244629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012878468, 0.6085452, -0.32625753)
 shape = SubResource("BoxShape3D_rk0pn")
