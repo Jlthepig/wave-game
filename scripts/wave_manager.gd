@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var wave_interval := 20.0
+@export var wave_interval := 30.0
 var timer := 0.0
 var wave_count := 0
 

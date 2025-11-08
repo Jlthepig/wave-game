@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://c3mh5p2w5s8g7"]
 
-[ext_resource type="Shader" uid="uid://dvgfoebe50ywd" path="res://assets/Textures/watershader/water.gdshader" id="1_wq4uc"]
+[ext_resource type="Shader" uid="uid://dvgfoebe50ywd" path="res://assets/Textures/watershader/Water.gdshader" id="1_wq4uc"]
 [ext_resource type="Texture2D" uid="uid://bmpr4s7s2gepr" path="res://assets/Textures/watershader/WaterPlaneNormal.tres" id="2_24cl4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_aggf3"]

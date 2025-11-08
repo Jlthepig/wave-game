@@ -443,7 +443,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0901928, 0, 0.7873029)
 script = ExtResource("21_fq0cl")
 target_point = NodePath("../TargetPoint")
 spawn_radius = 20.0
-spawn_interval = 4.0
+spawn_interval = 3.0
 
 [node name="island_wave_game" parent="." instance=ExtResource("22_hwpts")]
 transform = Transform3D(-8.742278e-06, 0, -200, 0, 200, 0, 200, 0, -8.742278e-06, -1.9281311, -3.5517998, 478.40308)
@@ -451,7 +451,7 @@ transform = Transform3D(-8.742278e-06, 0, -200, 0, 200, 0, 200, 0, -8.742278e-06
 [node name="Damage" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Damage"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.196914, -0.6973421, 0.92054915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.197, -1.4, 0.921)
 shape = SubResource("BoxShape3D_hwpts")
 
 [connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]
