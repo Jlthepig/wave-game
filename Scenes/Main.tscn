@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=4 uid="uid://debbq65velcoy"]
+[gd_scene load_steps=33 format=4 uid="uid://debbq65velcoy"]
 
 [ext_resource type="Texture2D" uid="uid://1fjpcprs8u4e" path="res://assets/Textures/sky/sky_14_2k.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://df1ke1mpj4h3" path="res://Prefabs/Player.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://oemncug0laqw" path="res://scripts/main.gd" id="1_vy5pj"]
 [ext_resource type="PackedScene" uid="uid://b4e8dtyr4mnqt" path="res://Prefabs/Wave.tscn" id="2_bmxlf"]
 [ext_resource type="Script" uid="uid://cd27plohny7uc" path="res://scripts/wavecountlabel.gd" id="3_346fj"]
+[ext_resource type="Script" uid="uid://dbvgrulxc6d0c" path="res://scripts/displayfps.gd" id="4_jyqft"]
 [ext_resource type="PackedScene" uid="uid://r2o3lbp1qctj" path="res://assets/Models/Oceanfloor/oceanfloor.glb" id="4_rgh2o"]
 [ext_resource type="Script" uid="uid://d2v8k3trubk63" path="res://scripts/BuildPiece.gd" id="5_bmxlf"]
 [ext_resource type="PackedScene" uid="uid://dpegj7v01ryu7" path="res://assets/Models/gold/gold pile_bestest.glb" id="6_v1gob"]
@@ -26,6 +27,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0sclb"]
 font_size = 60
 
+[sub_resource type="LabelSettings" id="LabelSettings_hwpts"]
+font_size = 50
+
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_pbw6q"]
 panorama = ExtResource("1_kln2b")
 
@@ -38,8 +42,9 @@ sky = SubResource("Sky_v1gob")
 ambient_light_source = 3
 tonemap_mode = 2
 tonemap_exposure = 0.66
+ssr_enabled = true
 ssr_fade_in = 0.24367599
-ssr_depth_tolerance = 12.61
+ssao_enabled = true
 sdfgi_bounce_feedback = 0.56
 sdfgi_min_cell_size = 0.89
 fog_mode = 1
@@ -49,6 +54,7 @@ fog_sky_affect = 0.535
 fog_depth_curve = 0.054409668
 fog_depth_begin = 100.0
 fog_depth_end = 4000.0
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.1
 volumetric_fog_albedo = Color(1.0216749, 1.2877817, 1.5720325, 1)
 volumetric_fog_emission = Color(0.12955844, 0.12955847, 0.12955844, 1)
@@ -169,6 +175,16 @@ grow_horizontal = 2
 text = "Wave: 0"
 label_settings = SubResource("LabelSettings_0sclb")
 script = ExtResource("3_346fj")
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -834.5
+offset_top = -5.0
+offset_right = -382.5
+offset_bottom = 318.0
+text = "Fps:"
+label_settings = SubResource("LabelSettings_hwpts")
+script = ExtResource("4_jyqft")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.66715693, 0, 0.7449173, 0, 1, 0, -0.7449173, 0, -0.66715693, 0, 1.5857428, 0)
